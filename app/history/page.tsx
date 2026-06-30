@@ -163,40 +163,37 @@ function SeasonTable({ teams }: {
 }) {
   return (
     <div className="bg-white border border-slate-200 rounded-2xl overflow-hidden">
-      <div className="grid grid-cols-12 gap-2 px-5 py-3 bg-slate-50 border-b border-slate-200 text-xs font-bold text-slate-500 uppercase tracking-wider">
-        <div className="col-span-1">#</div>
-        <div className="col-span-4">Manager</div>
-        <div className="col-span-2 text-center">Record</div>
-        <div className="col-span-2 text-right">PF</div>
-        <div className="col-span-2 text-right">PA</div>
-        <div className="col-span-1 text-right">Diff</div>
+      {/* Header — full on tablet/desktop, trimmed on mobile */}
+      <div className="hidden sm:flex items-center gap-3 px-5 py-3 bg-slate-50 border-b border-slate-200 text-xs font-bold text-slate-500 uppercase tracking-wider">
+        <div className="w-6 shrink-0">#</div>
+        <div className="flex-1">Manager</div>
+        <div className="w-16 text-center">Record</div>
+        <div className="w-20 text-right">PF</div>
+        <div className="w-20 text-right">PA</div>
+        <div className="w-12 text-right">Diff</div>
       </div>
       <div className="divide-y divide-slate-100">
         {teams.map((t) => {
           const diff = t.pf - t.pa;
           return (
-            <div key={t.rank} className={`grid grid-cols-12 gap-2 px-5 py-3.5 items-center ${t.playoff ? "hover:bg-blue-50/50" : "hover:bg-slate-50"} transition-colors`}>
-              <div className="col-span-1">
-                <span className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-black ${
-                  t.rank <= 4 ? "bg-blue-100 text-blue-700" : "bg-slate-100 text-slate-500"
-                }`}>
-                  {t.rank}
-                </span>
-              </div>
-              <div className="col-span-4">
-                <div className="font-semibold text-slate-900 text-sm truncate">{t.owner}</div>
-              </div>
-              <div className="col-span-2 text-center font-bold text-sm text-slate-700 tabular-nums">{t.w}–{t.l}</div>
-              <div className="col-span-2 text-right text-sm text-slate-600 tabular-nums">{t.pf.toFixed(2)}</div>
-              <div className="col-span-2 text-right text-sm text-slate-400 tabular-nums">{t.pa.toFixed(2)}</div>
-              <div className={`col-span-1 text-right text-xs font-bold tabular-nums ${diff >= 0 ? "text-emerald-600" : "text-red-500"}`}>
+            <div key={t.rank} className={`flex items-center gap-3 px-4 sm:px-5 py-3.5 ${t.playoff ? "hover:bg-blue-50/50" : "hover:bg-slate-50"} transition-colors`}>
+              <span className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-black shrink-0 ${
+                t.rank <= 4 ? "bg-blue-100 text-blue-700" : "bg-slate-100 text-slate-500"
+              }`}>
+                {t.rank}
+              </span>
+              <div className="flex-1 min-w-0 font-semibold text-slate-900 text-sm truncate">{t.owner}</div>
+              <div className="w-14 sm:w-16 text-center font-bold text-sm text-slate-700 tabular-nums">{t.w}–{t.l}</div>
+              <div className="w-16 sm:w-20 text-right text-sm text-slate-600 tabular-nums">{t.pf.toFixed(1)}</div>
+              <div className="hidden sm:block w-20 text-right text-sm text-slate-400 tabular-nums">{t.pa.toFixed(2)}</div>
+              <div className={`hidden sm:block w-12 text-right text-xs font-bold tabular-nums ${diff >= 0 ? "text-emerald-600" : "text-red-500"}`}>
                 {diff >= 0 ? "+" : ""}{diff.toFixed(0)}
               </div>
             </div>
           );
         })}
       </div>
-      <div className="px-5 py-3 bg-slate-50 border-t border-slate-100 text-xs text-slate-400">
+      <div className="px-4 sm:px-5 py-3 bg-slate-50 border-t border-slate-100 text-xs text-slate-400">
         🔵 Blue rank = Playoff qualifier (Top 4)
       </div>
     </div>
