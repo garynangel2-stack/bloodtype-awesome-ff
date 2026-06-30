@@ -1,8 +1,12 @@
 export const LEAGUE_NAME = "Bloodtype=Awesome Fantasy";
 export const LEAGUE_FORMAT = "8-Team PPR";
 
-// Sleeper integration — paste your 2026 league ID here (the long number in
-// sleeper.com/leagues/<ID>/...). Leave "" until the league is created.
+// Sleeper integration.
+// Option A (auto): set your Sleeper username and the site finds your league for
+// the current NFL season automatically — no need to update an ID each year.
+export const SLEEPER_USERNAME = "Gangel2";
+// Option B (manual override): paste a specific league ID to force it. Leave ""
+// to use the username auto-lookup above.
 export const SLEEPER_LEAGUE_ID = "";
 
 // Maps Sleeper usernames/display names -> real manager names used on the site.

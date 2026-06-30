@@ -1,6 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { SLEEPER_LEAGUE_ID, SLEEPER_NAME_MAP, upcomingEvents } from "@/lib/data";
+import { SLEEPER_LEAGUE_ID, SLEEPER_USERNAME, SLEEPER_NAME_MAP, upcomingEvents } from "@/lib/data";
 
 export const revalidate = 1800; // refresh live data every 30 min
 
@@ -33,7 +33,21 @@ export default async function SeasonPage() {
   const season: string = state?.season ?? "2026";
   const week: number = state?.week ?? 0;
   const inSeason = (seasonType === "regular" || seasonType === "post") && week >= 1;
-  const configured = SLEEPER_LEAGUE_ID.trim().length > 0;
+
+  // Resolve the league id: explicit override, else auto-lookup by username for
+  // the current season (so it works the moment the league is created).
+  let leagueId = SLEEPER_LEAGUE_ID.trim();
+  if (!leagueId && SLEEPER_USERNAME) {
+    const user = await getJSON(`${SLEEPER}/user/${SLEEPER_USERNAME}`);
+    if (user?.user_id) {
+      const leagues = await getJSON(`${SLEEPER}/user/${user.user_id}/leagues/nfl/${season}`);
+      if (Array.isArray(leagues) && leagues.length) {
+        const match = leagues.find((l: any) => /blood|awesome/i.test(l.name || "")) || leagues[0];
+        leagueId = match.league_id;
+      }
+    }
+  }
+  const configured = leagueId.length > 0;
 
   // --- Live data (only when configured + in season) ---
   let matchupCards: { id: number; a: SideInfo; b: SideInfo }[] = [];
@@ -42,11 +56,11 @@ export default async function SeasonPage() {
 
   if (configured && inSeason) {
     const [users, rosters, players, thisWk, lastWk] = await Promise.all([
-      getJSON(`${SLEEPER}/league/${SLEEPER_LEAGUE_ID}/users`),
-      getJSON(`${SLEEPER}/league/${SLEEPER_LEAGUE_ID}/rosters`),
+      getJSON(`${SLEEPER}/league/${leagueId}/users`),
+      getJSON(`${SLEEPER}/league/${leagueId}/rosters`),
       getJSON(`${SLEEPER}/players/nfl`),
-      getJSON(`${SLEEPER}/league/${SLEEPER_LEAGUE_ID}/matchups/${week}`),
-      week > 1 ? getJSON(`${SLEEPER}/league/${SLEEPER_LEAGUE_ID}/matchups/${week - 1}`) : Promise.resolve(null),
+      getJSON(`${SLEEPER}/league/${leagueId}/matchups/${week}`),
+      week > 1 ? getJSON(`${SLEEPER}/league/${leagueId}/matchups/${week - 1}`) : Promise.resolve(null),
     ]);
 
     const userById = new Map<string, any>((users ?? []).map((u: any) => [u.user_id, u]));
@@ -99,7 +113,7 @@ export default async function SeasonPage() {
     }
   }
 
-  const sleeperUrl = configured ? `https://sleeper.com/leagues/${SLEEPER_LEAGUE_ID}` : "https://sleeper.com";
+  const sleeperUrl = configured ? `https://sleeper.com/leagues/${leagueId}` : "https://sleeper.com";
 
   return (
     <main className="min-h-screen">
