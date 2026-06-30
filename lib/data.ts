@@ -30,7 +30,7 @@ export const champions = [
     champScore: "—",
     seed: 2,
     note: "Back-to-back different champs",
-    headshot: null,
+    headshot: "/headshots/david-champ.jpg",
   },
   {
     year: 2024,
