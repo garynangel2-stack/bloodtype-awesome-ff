@@ -1,6 +1,22 @@
 export const LEAGUE_NAME = "Bloodtype=Awesome Fantasy";
 export const LEAGUE_FORMAT = "8-Team PPR";
 
+// Sleeper integration — paste your 2026 league ID here (the long number in
+// sleeper.com/leagues/<ID>/...). Leave "" until the league is created.
+export const SLEEPER_LEAGUE_ID = "";
+
+// Maps Sleeper usernames/display names -> real manager names used on the site.
+// Falls back to the Sleeper name if a manager isn't listed here.
+export const SLEEPER_NAME_MAP: Record<string, string> = {
+  TBurgess5: "Teddy Burgess",
+  dschauer: "David Schauer",
+  Gangel2: "Garyn Angel",
+  EForman: "Eli Forman",
+  darcyireland: "Darcy Ireland",
+  CFraise83: "Corban Fraser",
+  ebhurgri: "Eshan Bhurgi",
+};
+
 export const champions = [
   {
     year: 2025,
