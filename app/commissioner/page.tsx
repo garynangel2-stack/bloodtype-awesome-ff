@@ -47,13 +47,12 @@ export default function CommissionerPage() {
         <section className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
           {/* Photo */}
           <div className="flex flex-col items-center md:items-start">
-            <div className="w-full max-w-xs aspect-square rounded-3xl bg-slate-100 border-2 border-dashed border-slate-300 flex flex-col items-center justify-center text-slate-400">
-              <span className="text-5xl">👤</span>
-              <span className="text-xs font-semibold mt-2">Add Photo</span>
-            </div>
-            <p className="text-[11px] text-slate-400 text-center md:text-left mt-2">
-              Drop a photo at <code className="bg-slate-100 px-1 rounded">public/headshots/garyn.jpg</code>
-            </p>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/headshots/garyn.jpg"
+              alt="Garyn Angel, Commissioner"
+              className="w-full max-w-xs aspect-square object-cover rounded-3xl border border-slate-200 shadow-sm"
+            />
           </div>
 
           {/* Bio */}

@@ -34,15 +34,26 @@ export default function ChampionsPage() {
 
                 <div className="p-7">
                   <div className="flex items-start gap-6">
-                    {/* Headshot placeholder */}
+                    {/* Headshot */}
                     <div className="shrink-0">
-                      <div className="w-24 h-24 rounded-2xl bg-slate-100 border-2 border-dashed border-slate-300 flex flex-col items-center justify-center text-slate-400 overflow-hidden">
-                        <span className="text-3xl">👤</span>
-                        <span className="text-[10px] font-semibold mt-1 text-center leading-tight px-1">Add Photo</span>
-                      </div>
-                      <p className="text-[10px] text-slate-400 text-center mt-1.5">
-                        /public/headshots/<br />{champ.owner.split(" ")[0].toLowerCase()}.jpg
-                      </p>
+                      {champ.headshot ? (
+                        // eslint-disable-next-line @next/next/no-img-element
+                        <img
+                          src={champ.headshot}
+                          alt={champ.owner}
+                          className="w-24 h-24 rounded-2xl object-cover border border-slate-200"
+                        />
+                      ) : (
+                        <>
+                          <div className="w-24 h-24 rounded-2xl bg-slate-100 border-2 border-dashed border-slate-300 flex flex-col items-center justify-center text-slate-400 overflow-hidden">
+                            <span className="text-3xl">👤</span>
+                            <span className="text-[10px] font-semibold mt-1 text-center leading-tight px-1">Add Photo</span>
+                          </div>
+                          <p className="text-[10px] text-slate-400 text-center mt-1.5">
+                            /public/headshots/<br />{champ.owner.split(" ")[0].toLowerCase()}.jpg
+                          </p>
+                        </>
+                      )}
                     </div>
 
                     {/* Info */}
