@@ -8,6 +8,7 @@ const navLinks = [
   { href: "/season", label: "Current Season" },
   { href: "/champions", label: "Champions" },
   { href: "/history", label: "League History" },
+  { href: "/commissioner", label: "Commissioner" },
 ];
 
 export default function Navbar() {

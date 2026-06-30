@@ -21,6 +21,7 @@ export default function Footer() {
               <Link href="/season" className="block hover:text-white transition-colors">Current Season</Link>
               <Link href="/champions" className="block hover:text-white transition-colors">Champions</Link>
               <Link href="/history" className="block hover:text-white transition-colors">League History</Link>
+              <Link href="/commissioner" className="block hover:text-white transition-colors">Commissioner</Link>
             </div>
             <div className="space-y-2">
               <div className="text-white font-semibold text-xs uppercase tracking-wider mb-3">Links</div>
