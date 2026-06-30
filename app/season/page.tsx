@@ -64,7 +64,7 @@ export default async function SeasonPage() {
         arr.push(m);
         groups.set(m.matchup_id, arr);
       }
-      matchupCards = [...groups.entries()].map(([id, pair]) => ({
+      matchupCards = Array.from(groups.entries()).map(([id, pair]) => ({
         id,
         a: side(pair[0], managerByRoster),
         b: side(pair[1], managerByRoster),
