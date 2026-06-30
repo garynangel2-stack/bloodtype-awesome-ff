@@ -1,13 +1,5 @@
 import { standings2025 } from "@/lib/data";
 
-// Pair up teams for last week's matchups (simulated from 2025 final standings)
-const lastWeekMatchups = [
-  { team1: "They Hit The Second Bower", owner1: "Teddy Burgess", score1: 142.8, team2: "dschauer", owner2: "David Schauer", score2: 130.02, week: 14 },
-  { team1: "Corbans Sister", owner1: "Garyn Angel", score1: 112.4, team2: "glorillagorillas", owner2: "—", score2: 98.7, week: 14 },
-  { team1: "Pickens my Balls", owner1: "Eli Forman", score1: 101.2, team2: "Stefon dih", owner2: "—", score2: 118.6, week: 14 },
-  { team1: "CMoney", owner1: "Corban Fraser", score1: 88.9, team2: "Al-Qaeda", owner2: "—", score2: 76.3, week: 14 },
-];
-
 export default function CurrentMatchups() {
   return (
     <section id="matchups">
@@ -25,7 +17,7 @@ export default function CurrentMatchups() {
         <div className="flex-1">
           <div className="text-xs font-bold text-blue-300 uppercase tracking-widest mb-1">2025 Champion</div>
           <div className="text-2xl font-black">David Schauer</div>
-          <div className="text-blue-200 text-sm mt-0.5">dschauer · 9-5 Regular Season · Sleeper PPR</div>
+          <div className="text-blue-200 text-sm mt-0.5">9-5 Regular Season · Sleeper PPR</div>
         </div>
         <div className="text-right">
           <div className="text-xs text-blue-300 font-medium">Championship</div>
@@ -48,8 +40,7 @@ export default function CurrentMatchups() {
                 {team.rank}
               </div>
               <div className="flex-1 min-w-0">
-                <div className="font-semibold text-slate-900 text-sm truncate">{team.teamName}</div>
-                <div className="text-xs text-slate-400">{team.owner !== "—" ? team.owner : team.username}</div>
+                <div className="font-semibold text-slate-900 text-sm truncate">{team.owner}</div>
               </div>
               <div className="text-sm font-bold text-slate-700 tabular-nums">{team.w}-{team.l}</div>
               <div className="text-sm text-slate-500 tabular-nums w-20 text-right">{team.pf.toFixed(1)} pts</div>

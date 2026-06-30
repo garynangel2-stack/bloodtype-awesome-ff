@@ -25,22 +25,6 @@ export default function Hero() {
             </Link>
           </div>
         </div>
-
-        {/* Stat bar */}
-        <div className="mt-14 grid grid-cols-2 sm:grid-cols-4 gap-8 border-t border-white/10 pt-10">
-          {[
-            { label: "Seasons Played", value: "2" },
-            { label: "Active Teams", value: "8" },
-            { label: "2025 Champion", value: "D. Schauer" },
-            { label: "League Record", value: "11-3", sub: "Teddy Burgess, 2025" },
-          ].map((stat) => (
-            <div key={stat.label}>
-              <div className="text-2xl font-black text-white">{stat.value}</div>
-              <div className="text-xs text-blue-300 font-medium mt-1">{stat.label}</div>
-              {stat.sub && <div className="text-xs text-slate-500 mt-0.5">{stat.sub}</div>}
-            </div>
-          ))}
-        </div>
       </div>
     </section>
   );

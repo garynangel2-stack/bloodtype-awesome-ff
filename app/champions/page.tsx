@@ -52,7 +52,6 @@ export default function ChampionsPage() {
                         <span className="text-xs font-bold bg-amber-100 text-amber-700 px-2 py-0.5 rounded-full">Champion</span>
                       </div>
                       <h3 className="text-xl font-black text-slate-900 leading-tight">{champ.owner}</h3>
-                      <p className="text-slate-500 text-sm mt-0.5 italic">"{champ.teamName}"</p>
 
                       <div className="mt-4 grid grid-cols-2 gap-3">
                         <div className="bg-slate-50 rounded-xl px-3 py-2">
@@ -166,7 +165,6 @@ export default function ChampionsPage() {
                     <span className="text-lg leading-none mt-0.5">{s.emoji}</span>
                     <div>
                       <div className="text-sm font-bold text-slate-900">{s.owner}</div>
-                      <div className="text-xs text-slate-500 italic">"{s.team}"</div>
                       <div className="text-xs text-slate-400 mt-0.5">{s.note}</div>
                     </div>
                     <div className="ml-auto text-xs font-bold text-slate-500 shrink-0">{s.record}</div>
@@ -183,7 +181,7 @@ export default function ChampionsPage() {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             {[
               { emoji: "😤", title: "Biggest Heartbreak", body: "Teddy Burgess went 10-4 in 2024 and 11-3 in 2025 — the best record in the league both years — and never won a ring.", label: "2× Runner-Up" },
-              { emoji: "⚡", title: "Closest Game Ever", body: "The 2024 Semifinals saw The Diddy Party beat Suck Deez Fat Juicy Nuts by just 0.7 points (146.4 – 145.7).", label: "2024 Playoffs" },
+              { emoji: "⚡", title: "Closest Game Ever", body: "The 2024 Semifinals saw Teddy Burgess beat Karl Grabowski by just 0.7 points (146.4 – 145.7).", label: "2024 Playoffs" },
               { emoji: "👑", title: "Biggest Upset", body: "Garyn Angel entered the 2024 playoffs as the 3-seed with an 8-6 record and won the whole thing.", label: "2024 Champ" },
             ].map((m) => (
               <div key={m.title} className="bg-white border border-slate-200 rounded-2xl p-6">

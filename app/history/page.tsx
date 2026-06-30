@@ -1,25 +1,10 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import OwnerRankingsTable from "@/components/OwnerRankingsTable";
 import { standings2024, standings2025, allTimeRecords, allTimeOwners } from "@/lib/data";
-
-function WinPctBar({ pct }: { pct: number }) {
-  return (
-    <div className="w-full bg-slate-100 rounded-full h-1.5 mt-1">
-      <div
-        className="bg-blue-500 h-1.5 rounded-full"
-        style={{ width: `${Math.round(pct * 100)}%` }}
-      />
-    </div>
-  );
-}
 
 export default function HistoryPage() {
   const sortedByWinPct = [...allTimeOwners].sort((a, b) => b.winPct - a.winPct);
-  const sortedByPF = [...allTimeOwners].sort((a, b) => {
-    const aPFperGame = a.totalPF / (a.wins + a.losses);
-    const bPFperGame = b.totalPF / (b.wins + b.losses);
-    return bPFperGame - aPFperGame;
-  });
   const bestEver = sortedByWinPct[0];
   const worstEver = sortedByWinPct[sortedByWinPct.length - 1];
 
@@ -97,57 +82,12 @@ export default function HistoryPage() {
           <div className="flex items-center justify-between mb-6">
             <div>
               <h2 className="text-2xl font-black text-slate-900">All-Time Owner Rankings</h2>
-              <p className="text-sm text-slate-500 mt-0.5">Combined across all seasons · sorted by win %</p>
+              <p className="text-sm text-slate-500 mt-0.5">Combined across all seasons · click a column to sort</p>
             </div>
             <span className="text-xs font-bold bg-slate-100 text-slate-600 px-3 py-1.5 rounded-full">2024–2025</span>
           </div>
 
-          <div className="bg-white border border-slate-200 rounded-2xl overflow-hidden">
-            {/* Table header */}
-            <div className="grid grid-cols-12 gap-2 px-5 py-3 bg-slate-50 border-b border-slate-200 text-xs font-bold text-slate-500 uppercase tracking-wider">
-              <div className="col-span-1">Rank</div>
-              <div className="col-span-3">Owner</div>
-              <div className="col-span-1 text-center">Seasons</div>
-              <div className="col-span-2 text-center">Record</div>
-              <div className="col-span-2 text-right">Win %</div>
-              <div className="col-span-2 text-right">Avg Pts/Wk</div>
-              <div className="col-span-1 text-center">💍</div>
-            </div>
-            <div className="divide-y divide-slate-100">
-              {sortedByWinPct.map((owner, i) => {
-                const avgPts = owner.totalPF / (owner.wins + owner.losses);
-                return (
-                  <div key={owner.owner} className="grid grid-cols-12 gap-2 px-5 py-4 items-center hover:bg-slate-50 transition-colors">
-                    <div className="col-span-1">
-                      <span className={`w-7 h-7 rounded-full flex items-center justify-center text-xs font-black ${
-                        i === 0 ? "bg-blue-700 text-white" : "bg-slate-100 text-slate-500"
-                      }`}>
-                        {i + 1}
-                      </span>
-                    </div>
-                    <div className="col-span-3">
-                      <div className="font-bold text-slate-900 text-sm">{owner.owner}</div>
-                      {owner.note && <div className="text-xs text-slate-400 italic">{owner.note}</div>}
-                    </div>
-                    <div className="col-span-1 text-center text-sm text-slate-500">{owner.seasons}</div>
-                    <div className="col-span-2 text-center font-bold text-sm text-slate-700 tabular-nums">
-                      {owner.wins}–{owner.losses}
-                    </div>
-                    <div className="col-span-2 text-right">
-                      <div className="text-sm font-bold text-slate-800 tabular-nums">{(owner.winPct * 100).toFixed(1)}%</div>
-                      <WinPctBar pct={owner.winPct} />
-                    </div>
-                    <div className="col-span-2 text-right text-sm font-bold text-slate-700 tabular-nums">
-                      {avgPts.toFixed(1)}
-                    </div>
-                    <div className="col-span-1 text-center text-sm">
-                      {owner.championships > 0 ? "🏆".repeat(owner.championships) : "—"}
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
+          <OwnerRankingsTable owners={allTimeOwners} />
         </section>
 
         {/* All-Time Fun Records */}
@@ -180,8 +120,7 @@ export default function HistoryPage() {
           <SeasonTable
             teams={standings2025.map(t => ({
               rank: t.rank,
-              teamName: t.teamName,
-              owner: t.owner !== "—" ? t.owner : t.username,
+              owner: t.owner,
               w: t.w,
               l: t.l,
               pf: t.pf,
@@ -203,7 +142,6 @@ export default function HistoryPage() {
           <SeasonTable
             teams={standings2024.map(t => ({
               rank: t.rank,
-              teamName: t.teamName,
               owner: t.owner,
               w: t.w,
               l: t.l,
@@ -221,13 +159,13 @@ export default function HistoryPage() {
 }
 
 function SeasonTable({ teams }: {
-  teams: { rank: number; teamName: string; owner: string; w: number; l: number; pf: number; pa: number; playoff: boolean }[]
+  teams: { rank: number; owner: string; w: number; l: number; pf: number; pa: number; playoff: boolean }[]
 }) {
   return (
     <div className="bg-white border border-slate-200 rounded-2xl overflow-hidden">
       <div className="grid grid-cols-12 gap-2 px-5 py-3 bg-slate-50 border-b border-slate-200 text-xs font-bold text-slate-500 uppercase tracking-wider">
         <div className="col-span-1">#</div>
-        <div className="col-span-4">Team</div>
+        <div className="col-span-4">Manager</div>
         <div className="col-span-2 text-center">Record</div>
         <div className="col-span-2 text-right">PF</div>
         <div className="col-span-2 text-right">PA</div>
@@ -246,8 +184,7 @@ function SeasonTable({ teams }: {
                 </span>
               </div>
               <div className="col-span-4">
-                <div className="font-semibold text-slate-900 text-sm truncate">{t.teamName}</div>
-                <div className="text-xs text-slate-400">{t.owner}</div>
+                <div className="font-semibold text-slate-900 text-sm truncate">{t.owner}</div>
               </div>
               <div className="col-span-2 text-center font-bold text-sm text-slate-700 tabular-nums">{t.w}–{t.l}</div>
               <div className="col-span-2 text-right text-sm text-slate-600 tabular-nums">{t.pf.toFixed(2)}</div>
