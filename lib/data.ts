@@ -40,7 +40,7 @@ export const champions = [
     champScore: "142.68 – 130.02",
     seed: 3,
     note: "Won as 3-seed upset!",
-    headshot: null,
+    headshot: "/headshots/garyn-champ.jpg",
   },
 ];
 
