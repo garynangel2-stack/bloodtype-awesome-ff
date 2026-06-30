@@ -18,7 +18,7 @@ export const SLEEPER_NAME_MAP: Record<string, string> = {
   EForman: "Eli Forman",
   darcyireland: "Darcy Ireland",
   CFraise83: "Corban Fraser",
-  ebhurgri: "Eshan Bhurgi",
+  ebhurgri: "Eshan Bhurgri",
 };
 
 export const champions = [
@@ -52,7 +52,7 @@ export const standings2025 = [
   { rank: 5, owner: "Eli Forman", w: 7, l: 7, pf: 1643.38, pa: 1576.48, playoff: false },
   { rank: 6, owner: "Darcy Ireland", w: 6, l: 8, pf: 1618.68, pa: 1769.9, playoff: false },
   { rank: 7, owner: "Corban Fraser", w: 5, l: 9, pf: 1567.94, pa: 1762.64, playoff: false },
-  { rank: 8, owner: "Eshan Bhurgi", w: 2, l: 12, pf: 1506.5, pa: 1844.58, playoff: false },
+  { rank: 8, owner: "Eshan Bhurgri", w: 2, l: 12, pf: 1506.5, pa: 1844.58, playoff: false },
 ];
 
 export const standings2024 = [
@@ -86,7 +86,7 @@ export const allTimeRecords = [
   { stat: "Most Championships", value: "1 each", holder: "Garyn Angel & David Schauer", season: "2024 / 2025", note: "Both won exactly once" },
   { stat: "Best Regular Season Record", value: "11-3", holder: "Teddy Burgess", season: "2025 Sleeper", note: "Led the league wire-to-wire" },
   { stat: "Most Points For (season)", value: "1,902.92", holder: "Teddy Burgess", season: "2024 ESPN", note: "Still didn't win the ring" },
-  { stat: "Worst Record", value: "2-12", holder: "Eshan Bhurgi", season: "2025 Sleeper", note: "Touch grass." },
+  { stat: "Worst Record", value: "2-12", holder: "Eshan Bhurgri", season: "2025 Sleeper", note: "Touch grass." },
   { stat: "Best Record, No Ring", value: "10-4 / 11-3", holder: "Teddy Burgess", season: "2024 & 2025", note: "2× heartbreak. Legend." },
   { stat: "Closest Playoff Game", value: "0.7 pts", holder: "Burgess 146.4 def. Grabowski 145.7", season: "2024 Semis", note: "Week 15" },
   { stat: "Fewest Points Allowed", value: "1,562.26", holder: "Teddy Burgess", season: "2024 ESPN", note: "Stingy all season" },
@@ -105,7 +105,7 @@ export const allTimeOwners = [
   { owner: "Darcy Ireland", seasons: 1, wins: 6, losses: 8, winPct: 0.429, totalPF: 1618.68, totalPA: 1769.9, championships: 0, note: "2025 only" },
   { owner: "Trajan Pagano", seasons: 1, wins: 6, losses: 8, winPct: 0.429, totalPF: 1645.16, totalPA: 1786.4, championships: 0, note: "2024 only" },
   { owner: "Shray Bhatnagar", seasons: 2, wins: 10, losses: 18, winPct: 0.357, totalPF: 3145.3, totalPA: 3566.22, championships: 0, note: "Big year-2 jump" },
-  { owner: "Eshan Bhurgi", seasons: 1, wins: 2, losses: 12, winPct: 0.143, totalPF: 1506.5, totalPA: 1844.58, championships: 0, note: "All-time worst record" },
+  { owner: "Eshan Bhurgri", seasons: 1, wins: 2, losses: 12, winPct: 0.143, totalPF: 1506.5, totalPA: 1844.58, championships: 0, note: "All-time worst record" },
 ];
 
 export const upcomingEvents = [
