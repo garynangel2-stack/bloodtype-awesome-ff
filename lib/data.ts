@@ -96,16 +96,16 @@ export const allTimeRecords = [
 
 // All-time owner stats (combined across seasons)
 export const allTimeOwners = [
-  { owner: "Teddy Burgess", seasons: 2, wins: 21, losses: 7, winPct: 0.75, totalPF: 3792.32, championships: 0, note: "All-time best record" },
-  { owner: "Garyn Angel", seasons: 2, wins: 17, losses: 11, winPct: 0.607, totalPF: 3339.62, championships: 1, note: "2024 Champion" },
-  { owner: "David Schauer", seasons: 2, wins: 16, losses: 12, winPct: 0.571, totalPF: 3558.24, championships: 1, note: "2025 Champion" },
-  { owner: "Eli Forman", seasons: 2, wins: 14, losses: 14, winPct: 0.5, totalPF: 3427.56, championships: 0, note: "" },
-  { owner: "Corban Fraser", seasons: 2, wins: 13, losses: 15, winPct: 0.464, totalPF: 3439.06, championships: 0, note: "" },
-  { owner: "Karl Grabowski", seasons: 1, wins: 7, losses: 7, winPct: 0.5, totalPF: 1889.7, championships: 0, note: "2024 only" },
-  { owner: "Darcy Ireland", seasons: 1, wins: 6, losses: 8, winPct: 0.429, totalPF: 1618.68, championships: 0, note: "2025 only" },
-  { owner: "Trajan Pagano", seasons: 1, wins: 6, losses: 8, winPct: 0.429, totalPF: 1645.16, championships: 0, note: "2024 only" },
-  { owner: "Shray Bhatnagar", seasons: 2, wins: 10, losses: 18, winPct: 0.357, totalPF: 3145.3, championships: 0, note: "Big year-2 jump" },
-  { owner: "Eshan Bhurgi", seasons: 1, wins: 2, losses: 12, winPct: 0.143, totalPF: 1506.5, championships: 0, note: "All-time worst record" },
+  { owner: "Teddy Burgess", seasons: 2, wins: 21, losses: 7, winPct: 0.75, totalPF: 3792.32, totalPA: 3192.4, championships: 0, note: "All-time best record" },
+  { owner: "Garyn Angel", seasons: 2, wins: 17, losses: 11, winPct: 0.607, totalPF: 3339.62, totalPA: 3365.92, championships: 1, note: "2024 Champion" },
+  { owner: "David Schauer", seasons: 2, wins: 16, losses: 12, winPct: 0.571, totalPF: 3558.24, totalPA: 3376.88, championships: 1, note: "2025 Champion" },
+  { owner: "Eli Forman", seasons: 2, wins: 14, losses: 14, winPct: 0.5, totalPF: 3427.56, totalPA: 3154.2, championships: 0, note: "" },
+  { owner: "Corban Fraser", seasons: 2, wins: 13, losses: 15, winPct: 0.464, totalPF: 3439.06, totalPA: 3497.32, championships: 0, note: "" },
+  { owner: "Karl Grabowski", seasons: 1, wins: 7, losses: 7, winPct: 0.5, totalPF: 1889.7, totalPA: 1808.32, championships: 0, note: "2024 only" },
+  { owner: "Darcy Ireland", seasons: 1, wins: 6, losses: 8, winPct: 0.429, totalPF: 1618.68, totalPA: 1769.9, championships: 0, note: "2025 only" },
+  { owner: "Trajan Pagano", seasons: 1, wins: 6, losses: 8, winPct: 0.429, totalPF: 1645.16, totalPA: 1786.4, championships: 0, note: "2024 only" },
+  { owner: "Shray Bhatnagar", seasons: 2, wins: 10, losses: 18, winPct: 0.357, totalPF: 3145.3, totalPA: 3566.22, championships: 0, note: "Big year-2 jump" },
+  { owner: "Eshan Bhurgi", seasons: 1, wins: 2, losses: 12, winPct: 0.143, totalPF: 1506.5, totalPA: 1844.58, championships: 0, note: "All-time worst record" },
 ];
 
 export const upcomingEvents = [

@@ -1,6 +1,7 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import OwnerRankingsTable from "@/components/OwnerRankingsTable";
+import AllTimePointsTable from "@/components/AllTimePointsTable";
 import { standings2024, standings2025, allTimeRecords, allTimeOwners } from "@/lib/data";
 
 export default function HistoryPage() {
@@ -88,6 +89,19 @@ export default function HistoryPage() {
           </div>
 
           <OwnerRankingsTable owners={allTimeOwners} />
+        </section>
+
+        {/* All-Time Points (PF / PA / Diff) */}
+        <section>
+          <div className="flex items-center justify-between mb-6">
+            <div>
+              <h2 className="text-2xl font-black text-slate-900">All-Time Points</h2>
+              <p className="text-sm text-slate-500 mt-0.5">Total points for, against, and differential · all seasons combined</p>
+            </div>
+            <span className="text-xs font-bold bg-slate-100 text-slate-600 px-3 py-1.5 rounded-full">2024–2025</span>
+          </div>
+
+          <AllTimePointsTable owners={allTimeOwners} />
         </section>
 
         {/* All-Time Fun Records */}
