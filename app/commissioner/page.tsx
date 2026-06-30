@@ -75,6 +75,25 @@ export default function CommissionerPage() {
                 league history. Simply put: the most honest, fair, and accomplished commissioner the league
                 could ask for.
               </p>
+              <p>
+                Ask anyone in the league and they&apos;ll tell you the same thing — Garyn is the heartbeat of
+                Bloodtype=Awesome. He founded it, he built it, and he carries it. Equal parts strategist,
+                statesman, and showman, he turns a group chat full of trash talk into a league people actually
+                look forward to every single fall. The man doesn&apos;t just play fantasy football — he
+                <span className="font-semibold text-slate-800"> sets the standard for it.</span>
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Hype pull-quote */}
+        <section>
+          <div className="bg-gradient-to-r from-blue-700 to-blue-900 rounded-3xl px-8 py-10 text-center text-white">
+            <div className="text-3xl sm:text-4xl font-black leading-tight max-w-3xl mx-auto">
+              &ldquo;The gold standard of fantasy commissioners — a champion on the field and a leader off it.&rdquo;
+            </div>
+            <div className="text-blue-300 text-sm font-bold uppercase tracking-widest mt-5">
+              The Bloodtype=Awesome League
             </div>
           </div>
         </section>
@@ -104,6 +123,27 @@ export default function CommissionerPage() {
                   <h3 className="font-black text-slate-900 mb-1">{q.title}</h3>
                   <p className="text-sm text-slate-500 leading-relaxed">{q.body}</p>
                 </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Accolades & Legacy */}
+        <section>
+          <h2 className="text-2xl font-black text-slate-900 mb-6">Accolades &amp; Legacy</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {[
+              { emoji: "🏆", title: "2024 League Champion", body: "Hoisted the trophy as a 3-seed underdog — one of the great title runs in league lore." },
+              { emoji: "🧱", title: "Founding Father", body: "Built Bloodtype=Awesome from the ground up and has been its driving force ever since." },
+              { emoji: "📈", title: "Elite Win Rate", body: "Owns one of the highest all-time win percentages in the entire league." },
+              { emoji: "🎯", title: "Always Dangerous", body: "A playoff team every single season — never out of the hunt." },
+              { emoji: "🕊️", title: "Keeper of the Peace", body: "Settles every dispute with a cool head and a fair hand. The league runs because he runs it." },
+              { emoji: "🔥", title: "Big-Game Operator", body: "Dropped 142.68 in the 2024 final to close out the championship in style." },
+            ].map((a) => (
+              <div key={a.title} className="bg-white border border-slate-200 rounded-2xl p-6">
+                <div className="text-3xl mb-3">{a.emoji}</div>
+                <h3 className="font-black text-slate-900 mb-1">{a.title}</h3>
+                <p className="text-sm text-slate-500 leading-relaxed">{a.body}</p>
               </div>
             ))}
           </div>
